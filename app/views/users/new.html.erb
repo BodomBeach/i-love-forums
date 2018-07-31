@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Crée un nouvel utilisateur:</h2>
+
+  <!-- 1- Formulaire HTML
+    version html d'un formulaire, deux traces de ruby ici avec les balises <%=  %>
+    <label => intitulé
+    <input => champ à remplir
+    la classe w-25 reduit la taille du champ (25/50/75/auto)
+    un textarea permet à l'utilisateur d'augmenter la taille du champ à la main
+    placeholder pré-rempli le champ
+    la classe form-control pimp le cadre du champ
+  -->
+
+    <form action="<%= users_path %>" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label><br>
+       <input type="text" name="name" placeholder="name"  class= 'form-control w-25'><br>
+      </div>
+      <div class="form-group">
+        <label for="name">Email</label><br>
+        <input type="text" name="email" placeholder="Email" class= 'form-control w-25'><br>
+      </div>
+      <div class="form-group">
+        <label for="name">Bio</label><br>
+        <textarea name="bio" rows="4" cols="50" placeholder="Bio" class= 'form-control w-75'></textarea><br>
+      </div>
+      <input type="submit" value="Create User" class= "btn btn-primary">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    </form>
+
+  <!-- 2 - Formulaire form_tag -->
+
+  <%= form_tag users_path, method: "post" do %>
+    <div class="form-group">
+      <%= label_tag :name %>:<br>
+      <%= text_field_tag 'name', nil, placeholder: 'Name', class: 'form-control w-25' %><br>
+    </div>
+    <div class="form-group">
+      <%= label_tag :email %>:<br>
+      <%= text_field_tag 'email', nil, placeholder: 'Email', class: 'form-control w-25' %><br>
+    </div>
+    <div class="form-group">
+      <%= label_tag :bio %>:<br>
+      <%= text_area_tag 'bio', nil, placeholder: 'Bio', class: 'form-control w-75' %><br>
+    </div>
+    <%= submit_tag 'Create User', class: "btn btn-primary"%>
+  <% end %>
+
+  <!-- 3- Formulaire form_for -->
+
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>:<br>
+      <%= f.text_field :name, placeholder: 'Name', class: 'form-control w-25' %><br>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>:<br>
+      <%= f.text_field :email, placeholder: 'Email', class: 'form-control w-25' %><br>
+    </div>
+    <div class="form-group">
+      <%= f.label :bio %>:<br>
+      <%= f.text_area :bio, placeholder: 'Bio', class: 'form-control w-75' %><br>
+    </div>
+    <%= f.submit class: "btn btn-primary"%>
+  <% end %>
+</div>

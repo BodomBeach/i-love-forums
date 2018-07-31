@@ -4,12 +4,17 @@
     <title>ILoveForums</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/home/nico/THP/week_5/i-love-forums/app/assets/stylesheets/users.scss">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <nav class="navbar navbar-dark bg-dark text-center">
+    <span class="navbar-brand mb-0 h1 text-center">I Love Forms</span>
+  </nav>
     <%= yield %>
   </body>
 </html>
