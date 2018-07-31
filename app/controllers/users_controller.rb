@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   def create
     #1 Pour form et form-tag, utiliser l'instruction suivante :
 
-    #@user = User.new name: params[:name], email: params[:email], bio: params[:bio]
+    @user = User.new name: params[:name], email: params[:email], bio: params[:bio]
 
 
     #2 Pour form_for, utiliser l'instruction suivante :
 
-    @user = User.new name: params[:user][:name], email: params[:user][:email], bio: params[:user][:bio]
+    #@user = User.new name: params[:user][:name], email: params[:user][:email], bio: params[:user][:bio]
 
     if @user.valid?
       @user.save

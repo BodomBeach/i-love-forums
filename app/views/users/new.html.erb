@@ -1,15 +1,17 @@
 <div class="container">
   <h2>Crée un nouvel utilisateur:</h2>
 
-  <!-- 1- Formulaire HTML
-    version html d'un formulaire, deux traces de ruby ici avec les balises <%=  %>
-    <label => intitulé
-    <input => champ à remplir
-    la classe w-25 reduit la taille du champ (25/50/75/auto)
-    un textarea permet à l'utilisateur d'augmenter la taille du champ à la main
-    placeholder pré-rempli le champ
-    la classe form-control pimp le cadre du champ
-  -->
+  <!--
+  <label => intitulé
+  <input> => champ à remplir
+  la classe w-25 reduit la taille du champ (25/50/75/auto)
+  un textarea permet à l'utilisateur d'augmenter la taille du champ à la main
+  placeholder pré-rempli le champ, la classe form-control pimp le cadre du champ -->
+
+
+
+  <!-- 1- Formulaire HTML -->
+
 
     <form action="<%= users_path %>" method="POST">
       <div class="form-group">
@@ -28,9 +30,11 @@
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     </form>
 
+
   <!-- 2 - Formulaire form_tag -->
 
-  <%= form_tag users_path, method: "post" do %>
+
+  <!-- <%= form_tag users_path, method: "post" do %>
     <div class="form-group">
       <%= label_tag :name %>:<br>
       <%= text_field_tag 'name', nil, placeholder: 'Name', class: 'form-control w-25' %><br>
@@ -44,11 +48,13 @@
       <%= text_area_tag 'bio', nil, placeholder: 'Bio', class: 'form-control w-75' %><br>
     </div>
     <%= submit_tag 'Create User', class: "btn btn-primary"%>
-  <% end %>
+  <% end %> -->
+
 
   <!-- 3- Formulaire form_for -->
 
-  <%= form_for @user do |f| %>
+
+  <!-- <%= form_for @user do |f| %>
     <div class="form-group">
       <%= f.label :name %>:<br>
       <%= f.text_field :name, placeholder: 'Name', class: 'form-control w-25' %><br>
@@ -62,5 +68,8 @@
       <%= f.text_area :bio, placeholder: 'Bio', class: 'form-control w-75' %><br>
     </div>
     <%= f.submit class: "btn btn-primary"%>
-  <% end %>
+  <% end %> -->
+
+
+
 </div>
